@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\MyProg\\VS\\projects\\Apress\\Глава 1\\CalculatorExample\\CalculatorExample\\CalculatorExample.csproj": {}
+    "C:\\MyProg\\VS\\projects\\Apress\\Глава 2\\SimpleCSharpApp\\SimpleCSharpApp.csproj": {}
   },
   "projects": {
-    "C:\\MyProg\\VS\\projects\\Apress\\Глава 1\\CalculatorExample\\CalculatorExample\\CalculatorExample.csproj": {
+    "C:\\MyProg\\VS\\projects\\Apress\\Глава 2\\SimpleCSharpApp\\SimpleCSharpApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\MyProg\\VS\\projects\\Apress\\Глава 1\\CalculatorExample\\CalculatorExample\\CalculatorExample.csproj",
-        "projectName": "CalculatorExample",
-        "projectPath": "C:\\MyProg\\VS\\projects\\Apress\\Глава 1\\CalculatorExample\\CalculatorExample\\CalculatorExample.csproj",
+        "projectUniqueName": "C:\\MyProg\\VS\\projects\\Apress\\Глава 2\\SimpleCSharpApp\\SimpleCSharpApp.csproj",
+        "projectName": "SimpleCSharpApp",
+        "projectPath": "C:\\MyProg\\VS\\projects\\Apress\\Глава 2\\SimpleCSharpApp\\SimpleCSharpApp.csproj",
         "packagesPath": "C:\\Users\\k0shm\\.nuget\\packages\\",
-        "outputPath": "C:\\MyProg\\VS\\projects\\Apress\\Глава 1\\CalculatorExample\\CalculatorExample\\obj\\",
+        "outputPath": "C:\\MyProg\\VS\\projects\\Apress\\Глава 2\\SimpleCSharpApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\k0shm\\AppData\\Roaming\\NuGet\\NuGet.Config",

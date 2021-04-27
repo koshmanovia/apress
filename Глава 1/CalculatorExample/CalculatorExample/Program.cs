@@ -1,6 +1,7 @@
-﻿using System;
+﻿//cals.cs
+using System;
 namespace CalculatorExample
-
+    //Класс точки входа в приложение
 {
     class Program
     {
@@ -13,10 +14,13 @@ namespace CalculatorExample
             Console.ReadLine();
         }
     }
+    //Калькулятор C#
     class Calc
     {
         public int Add(int x, int y)
-        { return x  + y; }
+        { 
+            return x  + y;
+        }
 
     }
 }
