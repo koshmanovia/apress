@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Windows.Forms;
+using System.IO;
+
+
 
 namespace SimpleCSharpApp
 {
@@ -13,8 +17,8 @@ namespace SimpleCSharpApp
             Console.WriteLine("*****Welcome to My Hacking App*****");
             Console.WriteLine("***********************************");
             Console.BackgroundColor = ConsoleColor.Black;
-
-            Console.ReadKey();
+            MessageBox.Show("All Done!");
+            Console.ReadKey();           
         }
     }
 }

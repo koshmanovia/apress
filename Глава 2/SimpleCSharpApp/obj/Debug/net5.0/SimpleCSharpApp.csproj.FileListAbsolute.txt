@@ -14,3 +14,5 @@ C:\MyProg\VS\projects\Apress\Глава 2\SimpleCSharpApp\obj\Debug\net5.0\Simpl
 C:\MyProg\VS\projects\Apress\Глава 2\SimpleCSharpApp\obj\Debug\net5.0\ref\SimpleCSharpApp.dll
 C:\MyProg\VS\projects\Apress\Глава 2\SimpleCSharpApp\obj\Debug\net5.0\SimpleCSharpApp.pdb
 C:\MyProg\VS\projects\Apress\Глава 2\SimpleCSharpApp\obj\Debug\net5.0\SimpleCSharpApp.genruntimeconfig.cache
+C:\MyProg\VS\projects\Apress\Глава 2\SimpleCSharpApp\bin\Debug\net5.0\System.Windows.Forms.dll
+C:\MyProg\VS\projects\Apress\Глава 2\SimpleCSharpApp\obj\Debug\net5.0\SimpleCSharpApp.csproj.CopyComplete
