@@ -1,0 +1,6 @@
+C:\MyProg\VS\projects\Apress\head 3\DataTypeFunctionality\bin\Debug\DataTypeFunctionality.exe.config
+C:\MyProg\VS\projects\Apress\head 3\DataTypeFunctionality\bin\Debug\DataTypeFunctionality.exe
+C:\MyProg\VS\projects\Apress\head 3\DataTypeFunctionality\bin\Debug\DataTypeFunctionality.pdb
+C:\MyProg\VS\projects\Apress\head 3\DataTypeFunctionality\obj\Debug\DataTypeFunctionality.csproj.CoreCompileInputs.cache
+C:\MyProg\VS\projects\Apress\head 3\DataTypeFunctionality\obj\Debug\DataTypeFunctionality.exe
+C:\MyProg\VS\projects\Apress\head 3\DataTypeFunctionality\obj\Debug\DataTypeFunctionality.pdb
