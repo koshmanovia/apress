@@ -1,7 +1,0 @@
-C:\MyProg\VS\projects\Apress\head 3\ObjectFunctionality\bin\Debug\ObjectFunctionality.exe.config
-C:\MyProg\VS\projects\Apress\head 3\ObjectFunctionality\bin\Debug\ObjectFunctionality.exe
-C:\MyProg\VS\projects\Apress\head 3\ObjectFunctionality\bin\Debug\ObjectFunctionality.pdb
-C:\MyProg\VS\projects\Apress\head 3\ObjectFunctionality\obj\Debug\ObjectFunctionality.csprojAssemblyReference.cache
-C:\MyProg\VS\projects\Apress\head 3\ObjectFunctionality\obj\Debug\ObjectFunctionality.csproj.CoreCompileInputs.cache
-C:\MyProg\VS\projects\Apress\head 3\ObjectFunctionality\obj\Debug\ObjectFunctionality.exe
-C:\MyProg\VS\projects\Apress\head 3\ObjectFunctionality\obj\Debug\ObjectFunctionality.pdb

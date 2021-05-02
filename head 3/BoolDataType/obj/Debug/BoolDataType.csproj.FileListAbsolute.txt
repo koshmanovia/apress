@@ -1,6 +1,0 @@
-C:\MyProg\VS\projects\Apress\head 3\BoolDataType\bin\Debug\BoolDataType.exe.config
-C:\MyProg\VS\projects\Apress\head 3\BoolDataType\bin\Debug\BoolDataType.exe
-C:\MyProg\VS\projects\Apress\head 3\BoolDataType\bin\Debug\BoolDataType.pdb
-C:\MyProg\VS\projects\Apress\head 3\BoolDataType\obj\Debug\BoolDataType.csproj.CoreCompileInputs.cache
-C:\MyProg\VS\projects\Apress\head 3\BoolDataType\obj\Debug\BoolDataType.exe
-C:\MyProg\VS\projects\Apress\head 3\BoolDataType\obj\Debug\BoolDataType.pdb
