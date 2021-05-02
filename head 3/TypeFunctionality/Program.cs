@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Numerics;
 
 namespace TypeFunctionality
 {
@@ -17,6 +18,7 @@ namespace TypeFunctionality
             ParseFromString();
             ParseFromStringWithTryParse();
             UseDatesAndTimes();
+            UseBigInteger();
             Console.ReadLine();
         }
         static void ObjectFunctionality()
@@ -95,6 +97,16 @@ namespace TypeFunctionality
             Console.WriteLine(ts);
             //Вычесть 15 минут из текущего значения  TimeSpan и вывести результат
             Console.WriteLine(ts.Subtract(new TimeSpan(0, 15,0)));
+        }
+        static void UseBigInteger()
+        {
+            Console.WriteLine("\n=> BigInteger: \n");
+            BigInteger biggy = BigInteger.Parse("88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888");
+            Console.WriteLine("Value of biggy is {0}", biggy);//значение biggy
+            Console.WriteLine("Is biggy an even value?: {0}", biggy.IsEven);//bigge четное?
+            Console.WriteLine("Is biggy a power of two?: {0}", biggy.IsPowerOfTwo);//степень biggy 2
+            BigInteger reallyBig = BigInteger.Multiply(biggy, BigInteger.Parse("23452342342342354235234523542354235"));
+            Console.WriteLine("Value of reallyBig is {0}",reallyBig);
         }
 
     }
