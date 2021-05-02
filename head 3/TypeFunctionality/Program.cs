@@ -15,6 +15,8 @@ namespace TypeFunctionality
             BoolFunctionality();
             CharFunctionality();
             ParseFromString();
+            ParseFromStringWithTryParse();
+            UseDatesAndTimes();
             Console.ReadLine();
         }
         static void ObjectFunctionality()
@@ -54,12 +56,46 @@ namespace TypeFunctionality
         }
         static void ParseFromString()
         {
-            Console.WriteLine("=> Data type parsing");
+            Console.WriteLine("\n=> Data type parsing\n");
             bool b = bool.Parse("True");
             double d = double.Parse("99,884");
             int i = int.Parse("8");
             char c = char.Parse("w");
             Console.WriteLine("Value of b: {0}\nValue of d: {1}\nValue of i: {2}\nValue of c: {3}",b,d,i,c);
         }
+        static void ParseFromStringWithTryParse()
+        {
+            Console.WriteLine("\n=> Data type parsing with TryParse:\n");
+            if (bool.TryParse("True", out bool b))
+            {
+                Console.WriteLine("Value of b: {0}", b);
+            }
+            string value = "Hello";
+            if (double.TryParse(value, out double d))
+            {
+                Console.WriteLine("Value of d: {0}\n", d);
+            }
+            else
+            {
+                Console.WriteLine("Failed to convert the input ({0}) to a double\n", value);
+            }
+        }
+        static void UseDatesAndTimes()
+        {
+            Console.WriteLine("=> Dates and Times");
+            //Этот конструктор принимает год, месяц и день
+            DateTime dt = new DateTime(2015, 10, 17);
+            //Какой сейчас день месяца?
+            Console.WriteLine("The day of {0} is {1}", dt.Date,dt.DayOfWeek);
+            //Сейчас месяц декабрь
+            dt = dt.AddMonths(2);
+            Console.WriteLine("Days savings: {0}",dt.IsDaylightSavingTime());
+            //Этот конструктор принимает часы, минуты и секунды
+            TimeSpan ts = new TimeSpan(4, 30, 0);
+            Console.WriteLine(ts);
+            //Вычесть 15 минут из текущего значения  TimeSpan и вывести результат
+            Console.WriteLine(ts.Subtract(new TimeSpan(0, 15,0)));
+        }
+
     }
 }
