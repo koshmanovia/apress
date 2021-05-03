@@ -20,6 +20,7 @@ namespace TypeFunctionality
             UseDatesAndTimes();
             UseBigInteger();
             DigitSeparators();
+            BinaryLiterals();
             Console.ReadLine();
         }
         static void ObjectFunctionality()
@@ -129,6 +130,13 @@ namespace TypeFunctionality
             Console.WriteLine(d);
             Console.WriteLine("Decimal");
             Console.WriteLine(dec);
+        }
+        private static void BinaryLiterals()
+        {
+            Console.WriteLine("=> Use Binary Literals");
+            Console.WriteLine("Шеснадцать: {0}", 0b0001_0000);
+            Console.WriteLine("Тридцать два: {0}", 0b0010_0000);
+            Console.WriteLine("Шестьдесят четыре: {0}", 0b0100_0000);
         }
     }
 }
