@@ -19,6 +19,7 @@ namespace TypeFunctionality
             ParseFromStringWithTryParse();
             UseDatesAndTimes();
             UseBigInteger();
+            DigitSeparators();
             Console.ReadLine();
         }
         static void ObjectFunctionality()
@@ -84,7 +85,7 @@ namespace TypeFunctionality
         }
         static void UseDatesAndTimes()
         {
-            Console.WriteLine("=> Dates and Times");
+            Console.WriteLine("\n=> Dates and Times\n");
             //Этот конструктор принимает год, месяц и день
             DateTime dt = new DateTime(2015, 10, 17);
             //Какой сейчас день месяца?
@@ -105,9 +106,29 @@ namespace TypeFunctionality
             Console.WriteLine("Value of biggy is {0}", biggy);//значение biggy
             Console.WriteLine("Is biggy an even value?: {0}", biggy.IsEven);//bigge четное?
             Console.WriteLine("Is biggy a power of two?: {0}", biggy.IsPowerOfTwo);//степень biggy 2
-            BigInteger reallyBig = BigInteger.Multiply(biggy, BigInteger.Parse("23452342342342354235234523542354235"));
+            BigInteger reallyBig = BigInteger.Multiply(biggy, BigInteger.Parse("999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"));
+            reallyBig = reallyBig * biggy;
             Console.WriteLine("Value of reallyBig is {0}",reallyBig);
         }
-
+        static void DigitSeparators()
+        {
+            var i = 123_456;
+            long l = 123_456_789L;
+            float f = 123_456.12346789f;
+            double d = 123_456.123456;
+            decimal dec = 123_456.12M;
+                        
+            Console.WriteLine("\n=> Use Digit Separators:\n");
+            Console.WriteLine("Integer:");
+            Console.WriteLine(i);
+            Console.WriteLine("Long");
+            Console.WriteLine(l);
+            Console.WriteLine("Float");
+            Console.WriteLine(f);
+            Console.WriteLine("Double");
+            Console.WriteLine(d);
+            Console.WriteLine("Decimal");
+            Console.WriteLine(dec);
+        }
     }
 }
