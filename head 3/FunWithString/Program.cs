@@ -14,6 +14,7 @@ namespace FunWithString
             StringConcatenation();
             EscapeChars();
             StringEquality();
+            StringEqualitySpecifyingCompareRules();
             Console.ReadLine();
         }
         static void BasicStringfunctionality()
@@ -53,7 +54,7 @@ namespace FunWithString
         }
         static void StringEquality()
         {
-            Console.WriteLine("\n=> String equality:");
+            Console.WriteLine("\n=> String equality:\n");
             string s1 = "Hello!";
             string s2 = "Yo!";
             Console.WriteLine("s1 = {0}",s1);
@@ -68,6 +69,22 @@ namespace FunWithString
             Console.WriteLine("Yo!.Equals(s2): {0}","Yo!".Equals(s2));
             Console.WriteLine();
         }
-    
+        static void StringEqualitySpecifyingCompareRules()
+        {
+            Console.WriteLine("\n=> String equality(Case Insensitive):\n");
+            string s1 = "Hello!";
+            string s2 = "HELLO!";
+            Console.WriteLine("s1 = {0}", s1);
+            Console.WriteLine("s2 = {0}", s2);
+            Console.WriteLine();
+            //Проверить результаты изменения стандартных правил сравнения. 
+            Console.WriteLine("Default rules: s1={0},s2={1},s1.Equals(s2): {2}", s1,s2,s1.Equals(s2));
+            Console.WriteLine("Ignore case: s1.Equals(s2,StringComparison.OrdinalIgnoreCase: {0}",s1.Equals(s2,StringComparison.OrdinalIgnoreCase));
+            Console.WriteLine("Ignore case, Invariant Culture: s1.Equals(s2, StringComparison.InvariantCultureIgnoreCase):{0}", s1.Equals(s2, StringComparison.InvariantCultureIgnoreCase));
+            Console.WriteLine("Ignore case: s1.IndexOf(\"E\", StringComparison.OrdinalIgnoreCase): {0}", s1.IndexOf("E", StringComparison.OrdinalIgnoreCase));
+            Console.WriteLine("e(ru-RU).Equals(e(en-US): {0}","е".Equals("e",StringComparison.Ordinal));
+            Console.WriteLine();
+
+        }
     }
 }
