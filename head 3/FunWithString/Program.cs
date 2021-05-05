@@ -15,6 +15,9 @@ namespace FunWithString
             EscapeChars();
             StringEquality();
             StringEqualitySpecifyingCompareRules();
+            StringsAreImmutable();
+            FunWithStringBuilder();
+            StringInterPolation();
             Console.ReadLine();
         }
         static void BasicStringfunctionality()
@@ -85,6 +88,42 @@ namespace FunWithString
             Console.WriteLine("e(ru-RU).Equals(e(en-US): {0}","е".Equals("e",StringComparison.Ordinal));
             Console.WriteLine();
 
+        }
+        static void StringsAreImmutable()
+        {
+            
+            string s1 = "This is my String";
+            Console.WriteLine("s1 = {0}", s1);
+           
+            string upperString = s1.ToUpper();
+            Console.WriteLine("upperString = {0}", upperString);
+
+            Console.WriteLine("s1 = {0}", s1);
+        }
+
+        static void FunWithStringBuilder()
+        {
+            Console.WriteLine("\n=> Using the StringBuilder:\n");
+            StringBuilder sb = new StringBuilder("**** Fantastic Game****");
+            sb.Append("\n");
+            sb.AppendLine("Morrowind");
+            sb.AppendLine("Deus Ex " + "2");
+            sb.AppendLine("System Shock");
+            Console.WriteLine(sb.ToString());
+            sb.Replace("2", "Invisible War");
+            Console.WriteLine(sb.ToString());
+            Console.WriteLine("sb has {0} chars",sb.Length);
+            Console.WriteLine();
+        }
+        static void StringInterPolation()
+        {
+            Console.WriteLine("\n=> Use Interpolation: \n");
+            int age = 33;
+            string name = "Ivan";
+            string greeting = string.Format("Hello {0} you are {1} years old", name, age);
+            string greeting2 = string.Format($"\tHello {name.ToUpper()} you are {age += 1} years old");
+            Console.WriteLine(greeting +"\n"+greeting2);
+            // при работе с более ранними(Ниже 6)версиями .NET возможны вылеты
         }
     }
 }
