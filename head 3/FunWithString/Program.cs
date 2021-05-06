@@ -100,7 +100,6 @@ namespace FunWithString
 
             Console.WriteLine("s1 = {0}", s1);
         }
-
         static void FunWithStringBuilder()
         {
             Console.WriteLine("\n=> Using the StringBuilder:\n");
@@ -124,6 +123,6 @@ namespace FunWithString
             string greeting2 = string.Format($"\tHello {name.ToUpper()} you are {age += 1} years old");
             Console.WriteLine(greeting +"\n"+greeting2);
             // при работе с более ранними(Ниже 6)версиями .NET возможны вылеты
-        }
+        }    
     }
 }
