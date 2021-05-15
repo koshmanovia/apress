@@ -11,11 +11,13 @@ namespace FunForArrays
         static void Main(string[] args)
         {
             Console.WriteLine("***** FunwithArrays *****");
-            SimpleArrays();            
+            SimpleArrays();
             Arraylnitialization();
             DeclarelmplicitArrays();
             ArrayOfObjects();
-
+            RectMultidimensionalArray();
+            JaggedMultidimensionalArray();
+            PassAndReceiveArrays();
             Console.ReadLine();
         }
         static void SimpleArrays()
@@ -32,8 +34,8 @@ namespace FunForArrays
             mylnts[2] = 300;
             // Вывести все значения.
             foreach (int i in mylnts)
-            { 
-                Console.WriteLine(i); 
+            {
+                Console.WriteLine(i);
             }
             Console.WriteLine();
         }
@@ -41,15 +43,15 @@ namespace FunForArrays
         {
             Console.WriteLine("=> Array Initialization.");
             // Синтаксис инициализации массива с использованием ключевого слова new.
-            string[] stringArray = new string[]{ "one", "two", "three", "four"};
+            string[] stringArray = new string[] { "one", "two", "three", "four" };
             Console.WriteLine("stringArray has {0} elements", stringArray.Length);
-            
+
             // Синтаксис инициализации массива без использования ключевого слова new.
             bool[] boolArray = { false, false, true, true };
             Console.WriteLine("boolArray has {0} elements", boolArray.Length);
-            
+
             // Инициализация массива с применением ключевого слова new и указанием размера.
-            int[] intArray = new int[5] {4,4,4,4,4};
+            int[] intArray = new int[5] { 4, 4, 4, 4, 4 };
             Console.WriteLine("intArray has {0} elements", intArray.Length);
             Console.WriteLine();
         }
@@ -87,6 +89,84 @@ namespace FunForArrays
                 Console.WriteLine("Туре: {0}, Value: {1}", obj.GetType(), obj);
             }
             Console.WriteLine();
+        }
+        static void RectMultidimensionalArray()
+        {
+            Console.WriteLine("=> Rectangular multidimensional array.");
+            // Прямоугольный многомерный массив.
+            int[,] myMatrix;
+            myMatrix = new int[3, 4];
+            // Заполнить массив (3 * 4) .
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    myMatrix[i, j] = i * j;
+                }
+            }
+            // Вывести содержимое массива (3 * 4) .
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    Console.Write(myMatrix[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+        }
+        static void JaggedMultidimensionalArray()
+        {
+            Console.WriteLine("=> Jagged multidimensional array.");
+            // Зубчатый многомерный массив (т.е. массив массивов).
+            // Здесь мы имеем массив из 5 разных массивов,
+            int[][] myJagArray = new int[5][];
+            // Создать зубчатый массив.
+            for (int i = 0; i < myJagArray.Length; i++)
+            {
+                myJagArray[i] = new int[i + 5];
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < myJagArray[i].Length; j++)
+                {
+                    myJagArray[i][j] = 5 + i + j;
+                }
+            }
+            // Вывести все строки (помните, что каждый элемент имеет стандартное значение 0).
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < myJagArray[i].Length; j++)
+                {
+                    Console.Write(myJagArray[i][j] + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+        }
+        static void PassAndReceiveArrays()
+        {
+            Console.WriteLine("=> Arrays as params and return values.");
+            // Передать массив в качестве параметра.
+            int[] ages = { 20, 22, 23, 0 };
+            PrintArray(ages);
+            // Получить массив как возвращаемое значение,
+            string[] strs = GetStringArray();
+            foreach (string s in strs)
+            {
+                Console.WriteLine(s);
+            }  
+            Console.WriteLine();
+        }
+        static void PrintArray(int[] mylnts)
+        {
+            for (int i = 0; i < mylnts.Length; i++)
+                Console.WriteLine("Item {0} is {1}", i, mylnts[i]);
+        }
+        static string[] GetStringArray()
+        {
+            string[] theStrings = { "Hello", "from", "GetStringArray" };
+            return theStrings;
         }
     }
 }
