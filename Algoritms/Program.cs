@@ -12,6 +12,11 @@ namespace Algoritms
         {
             BinarySearch(20, 2);
             SelectionSort(65,3,7,9,0);
+            Recursion(1);
+            checked 
+            {
+                Console.WriteLine(Factorial(65));
+            }            
             Console.ReadLine();
         }
         static void BinarySearch(int high, int item)
@@ -64,11 +69,11 @@ namespace Algoritms
             {
                 smallest = FindSmallest(arr);
                 newArr.Add(arr[smallest]);
-                arr[smallest] = Int32.MaxValue;
+                arr[smallest] = Int32.MaxValue; //если не делать так, то алгоритм не работает
             }
             for (int i = 0; i < newArr.Count; i++)
             {
-                Console.WriteLine(newArr[i]);
+                Console.Write(newArr[i]+"\t");
             }
             Console.WriteLine();
         }
@@ -85,6 +90,32 @@ namespace Algoritms
                 }
             }
             return smallestIndex;
+        }
+        static void Recursion(int i)
+        {
+            Console.WriteLine(i);
+            i++;
+            if (i > 20)
+            {
+                //базовый случай, делать чтото
+            }
+            else
+            {
+                Recursion(i); // рекурсивный случай
+            }
+            
+        }
+        static ulong Factorial(ulong ul)
+        {
+            if (ul == 1)
+            {
+                return 1;
+            }
+            else 
+            {
+                return ul * Factorial(ul - 1);
+            }
+
         }
     }
 }
