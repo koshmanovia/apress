@@ -8,7 +8,7 @@ namespace FunWithEnums
 {
     class Program
     {
-        enum EmpType : byte
+        enum EmpType : short
         {
             Manager = 10,       //=0, если задать значение 200, то след значения будут 200+1
             Grunt = 1 ,         //=1, 201
@@ -18,9 +18,25 @@ namespace FunWithEnums
         static void Main()
         {
             Console.WriteLine("**** Fun with Enums *****");
-            // Создать переменную типа ЕтрТуре.
+            // Создать переменную типа ЕmрТуре.
             EmpType еmр = EmpType.Manager;
             AskForBonus(еmр);
+            // Вывести тип хранилища для значений перечисления.
+            Console.WriteLine("ЕmрТуре uses а {0} for storage", Enum.GetUnderlyingType(еmр.GetType()));
+            Console.WriteLine("EmpType uses a {0} for storage",Enum.GetUnderlyingType(typeof(EmpType)));
+            // Выводит строку "emp is a Contractor".
+            Console.WriteLine("emp is a {0}.", еmр.ToString());
+            // Выводит строку "Contractor = 100".
+            Console.WriteLine("{0} = {1}", еmр.ToString(), (byte)еmр);
+            EvaluateEnum(еmр);
+
+            EmpType e2 = EmpType.Contractor;
+            //работа с типами перечислений пространсва имен System
+            DayOfWeek day = DayOfWeek.Monday;
+            ConsoleColor cc = ConsoleColor.Gray;
+            EvaluateEnum(cc);
+            EvaluateEnum(day);
+            EvaluateEnum(e2);
             Console.ReadLine();
         }
         // Перечисления как параметры,
@@ -45,6 +61,22 @@ namespace FunWithEnums
                     // Очень хорошо, сэр!
                     break;
             }
+        }
+        static void EvaluateEnum(System.Enum e)
+        {
+            Console.WriteLine("\n=> Information about {0}", e.GetType().Name);
+            Console.WriteLine("Underlying storage type: {0}",Enum.GetUnderlyingType(e.GetType()));
+            // Получить все пары "имя-значение" для входного параметра.
+            Array enumData = Enum.GetValues(e.GetType());
+            Console.WriteLine("This enum has {0} members.", enumData.Length);
+            // Вывести строковое имя и ассоциированное значение,
+            // используя флаг формата D (см. главу 3).            
+            for (int i = 0; i < enumData.Length; i++)
+            {
+                Console.WriteLine("Name : {0}, Value: {0:D}",
+                enumData.GetValue(i));
+            }
+            Console.WriteLine();
         }
     }
 }
