@@ -39,8 +39,21 @@ namespace SimpleClassExample
             c.SetDriverName("Tiny") ;
             c.PopAWheely();
             Console.WriteLine("Rider name is {0}", c.name);
-
+            Console.WriteLine();
+            MakeSomeBikes();
             Console.ReadLine();
+        }
+        static void MakeSomeBikes()
+        {
+            // driverName = driverlntensity = 0
+            Motorcycle ml = new Motorcycle();
+            Console.WriteLine("Name= {0}, Intensity= {1}", ml.name, ml.driverlntensity);
+            // driverName = ’’Tiny", driverlntensity = 0
+            Motorcycle m2 = new Motorcycle(name: "Tiny");
+            Console.WriteLine("Name= {0}, Intensity= {1}", m2.name, m2.driverlntensity);
+            // driverName = driverlntensity = 7
+            Motorcycle m3 = new Motorcycle(7);
+            Console.WriteLine("Name= {0}, Intensity= {1}",m3.name, m3.driverlntensity);
         }
     }
 }
