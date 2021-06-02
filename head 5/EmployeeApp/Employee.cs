@@ -12,7 +12,12 @@ namespace EmployeeApp
         private string empName;
         private int empID;
         private float currPay;
-        private int empAge;        
+        private int empAge;
+        string empSSN;
+        public string SocialSecurityNumber
+        {
+            get { return empSSN; }
+        }
         //свойства
         public string Name
         {
@@ -46,12 +51,14 @@ namespace EmployeeApp
         public Employee() { }
         public Employee(string name, int id, float pay)
             :this(name, 0, id, pay) { }
-        public Employee(string name, int age, int id, float pay)
+        public Employee(string name, int age, int id, float pay,string ssn)
         {
             Name = name;
             Age = id;
             Pay = pay;
             Age = age;
+            // Проверить надлежащим образом входной параметр ssn и затем установить значение.
+            empSSN = ssn;
         }
         // Методы.
         public void GiveBonus(float amount)
@@ -62,7 +69,7 @@ namespace EmployeeApp
         {
             Console.WriteLine("Name: {0}", Name); // имя сотрудника
             Console.WriteLine("ID: {0}", ID); // идентификационный номер сотрудника
-            Console.WriteLine("Pay: {0}", Age); 
+            Console.WriteLine("Age: {0}", Age); 
             Console.WriteLine("Pay: {0}", Pay);// текущая выплата
         }
         // Метод доступа (метод get) .
@@ -78,7 +85,7 @@ namespace EmployeeApp
                 Console.WriteLine("Error! Name length exceeds 15 characters!");
             // Ошибка' Длина имени превышает 15 символов!
             else
-                empName = name;
+                Name = name;
         }
     }
 }

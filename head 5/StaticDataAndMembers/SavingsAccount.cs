@@ -9,7 +9,12 @@ namespace StaticDataAndMembers
     class SavingsAccount
     {
         public double currBalance;     
-        public static double currlnterestRate;
+        public static double currlnterestRate = 0.04;
+        public static double InterestRate
+        {
+            get { return currlnterestRate; }
+            set { currlnterestRate = value; }
+        }
         public SavingsAccount(double balance)
         {
             currlnterestRate = 0.04;
