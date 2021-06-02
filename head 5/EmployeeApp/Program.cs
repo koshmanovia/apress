@@ -16,11 +16,15 @@ namespace EmployeeApp
             emp.Displaystats();
             // Использовать методы get/set для взаимодействия
             // с именем сотрудника, представленного объектом,
-            emp.SetName("Marv");
-            Console.WriteLine("Employee is named: {0}", emp.GetName());
+            emp.Name = "Marv";
+            Console.WriteLine("Employee is named: {0}", emp.Name);                    
            
             Employee emp2 = new Employee();
             emp2.SetName("Xena the warrior princess");
+
+            Employee joe = new Employee();
+            joe.Age++;
+
             Console.ReadLine();
         }
     }
