@@ -33,7 +33,6 @@ namespace ObjectInitializers
                 TopLeft = new Point { X = 10, Y = 10 },
                 BottomRight = new Point { X = 200, Y = 200 }
             };
-
             Console.ReadLine();
         }
     }

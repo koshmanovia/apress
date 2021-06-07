@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9F7C327B-BB7C-4FD3-927B-DD004A84D264}</ProjectGuid>
+    <ProjectGuid>{74D15188-98B9-43A7-B707-58186FACE7D8}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>EmployeeApp</RootNamespace>
-    <AssemblyName>EmployeeApp</AssemblyName>
+    <RootNamespace>ConstData</RootNamespace>
+    <AssemblyName>ConstData</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,8 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Employee.Core.cs" />
-    <Compile Include="Employee.cs" />
+    <Compile Include="MyMathClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

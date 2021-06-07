@@ -6,19 +6,15 @@ using System.Threading.Tasks;
 
 namespace EmployeeApp
 {
-    class Employee
+    partial class Employee
     {
-        // Поля данных.
-        private string empName;
-        private int empID;
-        private float currPay;
-        private int empAge;
-        string empSSN;
+
+        //свойства
         public string SocialSecurityNumber
         {
             get { return empSSN; }
         }
-        //свойства
+       
         public string Name
         {
             get => empName; 
@@ -47,19 +43,7 @@ namespace EmployeeApp
             set => empAge = value; 
         }
 
-        // Конструкторы.
-        public Employee() { }
-        public Employee(string name, int id, float pay)
-            :this(name, 0, id, pay) { }
-        public Employee(string name, int age, int id, float pay,string ssn)
-        {
-            Name = name;
-            Age = id;
-            Pay = pay;
-            Age = age;
-            // Проверить надлежащим образом входной параметр ssn и затем установить значение.
-            empSSN = ssn;
-        }
+
         // Методы.
         public void GiveBonus(float amount)
         {
