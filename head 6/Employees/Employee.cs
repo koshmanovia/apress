@@ -66,16 +66,17 @@ namespace Employees
             return empBenefits.ComputePayDeduction();
         }         
         // Методы.
-        public void GiveBonus(float amount)
+        public virtual void GiveBonus(float amount)
         {
             Pay += amount;
         }
-        public void Displaystats()
+        public virtual void Displaystats()
         {
             Console.WriteLine("Name: {0}", Name); // имя сотрудника
             Console.WriteLine("ID: {0}", ID); // идентификационный номер сотрудника
             Console.WriteLine("Age: {0}", Age); 
             Console.WriteLine("Pay: {0}", Pay);// текущая выплата
+            Console.WriteLine("SSN: {0}", SocialSecurityNumber);
         }
         // Метод доступа (метод get) .
         public string GetName()
