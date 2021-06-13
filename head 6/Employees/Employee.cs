@@ -8,9 +8,20 @@ namespace Employees
 {
     partial class Employee
     {
-
-
         //свойства
+        public class BenefitPackage
+        {
+            public enum BenefitPackageLevel
+            {
+                Standard, Gold, Platinum
+            }
+            // Предположим, что есть другие члены, представляющие
+            // медицинские/стоматологические программы и т.д.
+            public double ComputePayDeduction()
+            {
+                return 125.0;
+            }
+        }
         public string SocialSecurityNumber
         {
             get { return empSSN; }
@@ -43,8 +54,17 @@ namespace Employees
             get => empAge; 
             set => empAge = value; 
         }
-       
-
+        // Открывает доступ к объекту через специальное свойство,
+        public BenefitPackage Benefits
+        {
+            get { return empBenefits; }
+            set { empBenefits = value; }
+        }
+        // Открывает доступ к некоторому поведению, связанному со льготами,
+        public double GetBenefitCost() 
+        {
+            return empBenefits.ComputePayDeduction();
+        }         
         // Методы.
         public void GiveBonus(float amount)
         {
