@@ -2,8 +2,24 @@
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Employees.Employee">
     <Position X="4.25" Y="0.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
     <NestedTypes>
-      <Class Name="Employees.Employee.BenefltPackage" Collapsed="true">
+      <Class Name="Employees.Employee.BenefitPackage">
+        <Compartments>
+          <Compartment Name="Nested Types" Collapsed="false" />
+        </Compartments>
+        <NestedTypes>
+          <Enum Name="Employees.Employee.BenefitPackage.BenefitPackageLevel">
+            <TypeIdentifier>
+              <NewMemberFileName>Employee.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Enum>
+        </NestedTypes>
         <TypeIdentifier>
           <NewMemberFileName>Employee.cs</NewMemberFileName>
         </TypeIdentifier>
@@ -17,7 +33,7 @@
   <Class Name="Employees.Manager">
     <Position X="1.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
       <FileName>Manager.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -38,7 +54,7 @@
   <Class Name="Employees.SalesPerson">
     <Position X="6.75" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAEQA=</HashCode>
       <FileName>SalesPerson.cs</FileName>
     </TypeIdentifier>
   </Class>
