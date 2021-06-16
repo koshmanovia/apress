@@ -10,5 +10,10 @@ namespace Employees
     {
         public PTSalesPerson(string fullName, int age, int empID, float currPay, string ssn, int numbOfSales)
         : base(fullName, age, empID, currPay, ssn, numbOfSales) { }
+       /* public sealed override void GiveBonus(float amount)
+        {
+           //запечатаем метод чтобы продавцы частичной занятоти не получали бонусов
+        }*/
+
     }
 }

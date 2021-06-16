@@ -16,7 +16,7 @@ namespace Employees
             // Это принадлежит нам'
             SalesNumber = numbOfSales;
         }
-        public override void GiveBonus(float amount)
+        sealed public override void GiveBonus(float amount)
         {
             int salesBonus = 0;
             if (SalesNumber >= 0 && SalesNumber <= 100)
