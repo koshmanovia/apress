@@ -22,6 +22,10 @@ namespace shape
             {
                 s.Draw();
             }
+            TreeDCircle o = new TreeDCircle();
+            o.Draw();
+            ((Circle)o).Draw();
+
             Console.ReadLine();
         }
     }
