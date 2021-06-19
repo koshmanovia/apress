@@ -25,8 +25,25 @@ namespace Employees
             SalesPerson fran = new SalesPerson("Fran", 43, 93, 3000, "932-32-3232", 31);
             fran.GiveBonus(3124);
             fran.Displaystats();
+            Console.WriteLine();
 
-            Console.ReadLine();
+            object[] things = new object[4];
+            things[0] = new Hexagon();
+            things[1] = false;
+            things[2] = new Manager();
+            things[3] = "Last thing";
+
+            foreach (object item in things)
+            {
+                Hexagon h = item as Hexagon;
+                if (h == null)
+                    Console.WriteLine("Item is not a hexagon");
+                else
+                {
+                    h.Draw();
+                }
+            }
+                    Console.ReadLine();
         }
         static void CastingExamples()
         {
@@ -39,12 +56,21 @@ namespace Employees
             GivePromotion(moonUnit);
             GivePromotion(jill);
             GivePromotion((Manager)frank);
+
         }
         static void GivePromotion(Employee emp)
-        {
+        {            
             // Повысить зарплату...
             // Предоставить место на парковке компании...
             Console.WriteLine("{0} was promoted!", emp.Name);
+            if (emp is SalesPerson s)
+            {
+                Console.WriteLine("{0} made {1} sale(s)!\n", emp.Name, s.SalesNumber);  
+            }
+            if (emp is Manager m)
+            {
+                Console.WriteLine("{0} had {1} stock options...\n", emp.Name, m.StockOptions);
+            }
         }
     }
 }
