@@ -63,13 +63,31 @@ namespace Employees
             // Повысить зарплату...
             // Предоставить место на парковке компании...
             Console.WriteLine("{0} was promoted!", emp.Name);
-            if (emp is SalesPerson s)
+
+            switch (emp)
             {
-                Console.WriteLine("{0} made {1} sale(s)!\n", emp.Name, s.SalesNumber);  
-            }
-            if (emp is Manager m)
-            {
-                Console.WriteLine("{0} had {1} stock options...\n", emp.Name, m.StockOptions);
+                case SalesPerson s when s.SalesNumber >5:
+                    Console.WriteLine("{0} made {1} sale(s)!\n", emp.Name, s.SalesNumber);
+                    Console.WriteLine("Nise Work!");
+                    break;
+
+                case SalesPerson s when s.SalesNumber > 1:
+                    Console.WriteLine("{0} made {1} sale(s)!\n", emp.Name, s.SalesNumber);
+                    Console.WriteLine("Good Work!");
+                    break;
+                case SalesPerson s when s.SalesNumber > 0:
+                    Console.WriteLine("{0} made {1} sale(s)!\n", emp.Name, s.SalesNumber);
+                    Console.WriteLine("Bad Job!");
+                    break;
+                case Manager m:
+                    Console.WriteLine("{0} had {1} stock options...\n", emp.Name, m.StockOptions);
+                    break;
+                case Intern _:
+                    //Игнорим практиков
+                    break;
+                case null:
+                    Console.WriteLine("Error Value is null");
+                    break;
             }
         }
     }
