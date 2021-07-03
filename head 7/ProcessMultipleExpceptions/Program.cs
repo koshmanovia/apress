@@ -17,7 +17,7 @@ namespace ProcessMultipleExpceptions
                 // Вызвать исключение выхода за пределы диапазона аргумента.
                 myCar.Accelerate(-10);
             }
-            catch (CarisDeadException e)
+            catch (CarisDeadException e) when (e.ErrorTimeStamp.DayOfWeek != DayOfWeek.Friday)
             {
                 Console.WriteLine(e.Message);
             }
@@ -84,10 +84,10 @@ namespace ProcessMultipleExpceptions
                     {
                         carIsDead = true;
                         CurrentSpeed = 0;
-                        //   CarisDeadException ex = new CarisDeadException($"{PetName} has overheated!",
-                        //  "You have a lead foot", DateTime.Now);
-                        //     ex.HelpLink = "http://www.CarsRUs.com";
-                        //     throw ex;
+                        CarisDeadException ex = new CarisDeadException($"{PetName} has overheated!",
+                         "You have a lead foot", DateTime.Now);
+                        ex.HelpLink = "http://www.CarsRUs.com";
+                        throw ex;
                     }
                     else
                     {
