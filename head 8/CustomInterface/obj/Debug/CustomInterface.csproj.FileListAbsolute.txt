@@ -1,0 +1,7 @@
+C:\MyProg\VS\projects\Apress\head 8\CustomInterface\bin\Debug\CustomInterface.exe.config
+C:\MyProg\VS\projects\Apress\head 8\CustomInterface\bin\Debug\CustomInterface.exe
+C:\MyProg\VS\projects\Apress\head 8\CustomInterface\bin\Debug\CustomInterface.pdb
+C:\MyProg\VS\projects\Apress\head 8\CustomInterface\obj\Debug\CustomInterface.csproj.AssemblyReference.cache
+C:\MyProg\VS\projects\Apress\head 8\CustomInterface\obj\Debug\CustomInterface.csproj.CoreCompileInputs.cache
+C:\MyProg\VS\projects\Apress\head 8\CustomInterface\obj\Debug\CustomInterface.exe
+C:\MyProg\VS\projects\Apress\head 8\CustomInterface\obj\Debug\CustomInterface.pdb

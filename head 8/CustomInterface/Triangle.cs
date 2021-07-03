@@ -16,7 +16,7 @@ namespace CustomInterface
         }
         public byte Points 
         {
-            get { return 3}
+            get { return 3; }
         }
     }
 }
