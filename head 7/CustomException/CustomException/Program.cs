@@ -10,6 +10,20 @@ namespace CustomException
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("***** Fun with Custom Exceptions *****\n");
+            Car myCar = new Car("Rusty", 90);
+            try
+            {
+                // Отслеживать исключение.
+                myCar.Accelerate(150);
+            }
+            catch (CarisDeadException e)
+            { 
+                Console.WriteLine(e.Message);
+                Console.WriteLine(e.ErrorTimeStamp);
+                Console.WriteLine(e.CauseOfError);
+            }
+            Console.ReadLine();
         }
         class Radio
         {
@@ -58,10 +72,9 @@ namespace CustomException
                     {
                         carIsDead = true;
                         CurrentSpeed = 0;
-                        Exception ex = new Exception($"{PetName} Has overheated");
-                        ex.HelpLink = "http://www.cars.ru";
-                        ex.Data.Add("TimeStamp", $"The car exploded at {DateTime.Now}");
-                        ex.Data.Add("Cause", "You have a lead foot.");
+                        CarisDeadException ex = new CarisDeadException($"{PetName} has overheated!",
+                     "You have a lead foot", DateTime.Now);
+                        ex.HelpLink = "http://www.CarsRUs.com";
                         throw ex;
                     }
                     else

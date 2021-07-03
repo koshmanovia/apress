@@ -6,17 +6,27 @@ using System.Threading.Tasks;
 
 namespace CustomException
 {
-    class CarisDeadException : ApplicationException
+    [Serializable]
+    public class CarisDeadException : ApplicationException
     {
-        private string messageDetails = String.Empty;
+        public CarisDeadException() { }
+        public CarisDeadException(string message) : base(message) { }
+        public CarisDeadException(string message, Exception inner) : base(message, inner) { }
+        protected CarisDeadException(
+      System.Runtime.Serialization.SerializationInfo info,
+      System.Runtime.Serialization.StreamingContext context)
+        : base(info, context) { }
+        // private string messageDetails = String.Empty;
         public DateTime ErrorTimeStamp { get; set; }
         public string CauseOfError { get; set; }
-        public CarisDeadException() { }
-        public CarisDeadException(string message, string cause, DateTime time)
+       
+        public CarisDeadException(string message, string cause, DateTime time) 
+            :base(message)
         {
-            messageDetails = message;
+          //  messageDetails = message;
             CauseOfError = cause;
             ErrorTimeStamp = time;
         }
-        public override string Message => $"Car Error Message: {messag eDetails}";
+       //public override string Message => $"Car Error Message: {messageDetails}";
     }
+}
