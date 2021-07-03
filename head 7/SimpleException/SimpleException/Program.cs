@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace SimpleException
 {
@@ -30,6 +31,13 @@ namespace SimpleException
                 Console.WriteLine("Source: {0}" , e.Source);
                 Console.WriteLine("Stack: {0}", e.StackTrace);
                 Console.WriteLine("Help Link: {0}", e.HelpLink);
+                Console.WriteLine("\n->Custom Data: ");
+                foreach (DictionaryEntry de in e.Data) 
+                { 
+                    //Console.WriteLine("-> {0}: {1}",de.Key, de.Value);
+                    Console.WriteLine("-> {0}", de.Value);
+                }
+                    
             }
             Console.WriteLine("\n***** Out of exception logic *****");
             Console.ReadLine();
@@ -85,6 +93,8 @@ namespace SimpleException
                     CurrentSpeed = 0;
                     Exception ex = new Exception($"{PetName} Has overheated");
                     ex.HelpLink = "http://www.cars.ru";
+                    ex.Data.Add("TimeStamp", $"The car exploded at {DateTime.Now}");
+                    ex.Data.Add("Cause", "You have a lead foot.");          
                     throw ex;
                 }
                 else
