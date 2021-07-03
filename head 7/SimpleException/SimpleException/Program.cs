@@ -24,9 +24,12 @@ namespace SimpleException
             catch (Exception e)
             {
                 Console.WriteLine("\n*** Error ***"); // ошибка
-                Console.WriteLine("Method: {0}" , e.TargetSite); // метод
+                Console.WriteLine("Member Name: {0}", e.TargetSite);//имя члена
+                Console.WriteLine("Class defining member: {0}", e.TargetSite.DeclaringType); // класс, определяющий член
                 Console.WriteLine("Message: {0} ", e.Message); // сообщение
                 Console.WriteLine("Source: {0}" , e.Source);
+                Console.WriteLine("Stack: {0}", e.StackTrace);
+                Console.WriteLine("Help Link: {0}", e.HelpLink);
             }
             Console.WriteLine("\n***** Out of exception logic *****");
             Console.ReadLine();
@@ -80,7 +83,9 @@ namespace SimpleException
                 {                
                     carIsDead = true;
                     CurrentSpeed = 0;
-                    throw new Exception($"{PetName} has overheated!");
+                    Exception ex = new Exception($"{PetName} Has overheated");
+                    ex.HelpLink = "http://www.cars.ru";
+                    throw ex;
                 }
                 else
                     Console.WriteLine("=> CurrentSpeed = {0} KMH", CurrentSpeed);
