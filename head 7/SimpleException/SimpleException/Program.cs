@@ -14,10 +14,22 @@ namespace SimpleException
             Console.WriteLine("=> Creating a car and stepping on it!");
             Car MyCar = new Car("Zippy", 20);
             MyCar.CrankTunes(true);
-            for (int i = 0; i < 10; i++)
+            try
             {
-                MyCar.Accelerate(10);
+                for (int i = 0; i < 10; i++)
+                {
+                    MyCar.Accelerate(23);
+                }
             }
+            catch (Exception e)
+            {
+                Console.WriteLine("\n*** Error ***"); // ошибка
+                Console.WriteLine("Method: {0}" , e.TargetSite); // метод
+                Console.WriteLine("Message: {0} ", e.Message); // сообщение
+                Console.WriteLine("Source: {0}" , e.Source);
+            }
+            Console.WriteLine("\n***** Out of exception logic *****");
+            Console.ReadLine();
             Console.ReadLine();
         }
     }
@@ -32,7 +44,7 @@ namespace SimpleException
     class Car
     {
         // Константа максимальной скорости
-        public const int MaxSpeed = 100;
+        public const int MaxSpeed = 220;
         // свойства автомобиля
         public int CurrentSpeed { get; set; } = 0;
         public string PetName { get; set; } = "";
@@ -64,14 +76,14 @@ namespace SimpleException
             else
             {
                 CurrentSpeed += delta;
-                if (CurrentSpeed > MaxSpeed)
-                {
-                    Console.WriteLine("{0} has overheated!", PetName);
+                if (CurrentSpeed >= MaxSpeed)
+                {                
                     carIsDead = true;
                     CurrentSpeed = 0;
+                    throw new Exception($"{PetName} has overheated!");
                 }
                 else
-                    Console.WriteLine("=> CurrentSpeed = {0}", CurrentSpeed);
+                    Console.WriteLine("=> CurrentSpeed = {0} KMH", CurrentSpeed);
             }
         }
     }
