@@ -51,9 +51,16 @@ namespace CustomInterface
                     Console.WriteLine("-> {0}\'s not pointy!", myShapes[i].PetName);
                 // нет вершин
                 Console.WriteLine();
+                // Можно ли нарисовать эту фигуру в трехмерном виде?
+                if (myShapes[i] is IDraw3D)
+                    DrawIn3D((IDraw3D)myShapes[i]);
             }
 
             Console.ReadLine();
+        }
+        static void DrawIn3D(IDraw3D itf3d) 
+        {
+            itf3d.Draw3D();
         }
     }
 }

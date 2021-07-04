@@ -10,7 +10,7 @@
   <Class Name="CustomInterface.Hexagon">
     <Position X="4.75" Y="6.25" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAggAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAggAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Hexagon.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -18,7 +18,7 @@
   <Class Name="CustomInterface.Program" Collapsed="true">
     <Position X="7.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -30,11 +30,19 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CustomInterface.TreeDCircle">
-    <Position X="1.75" Y="6.5" Width="1.5" />
+    <Position X="0.5" Y="5" Width="1.5" />
+    <InheritanceLine Type="CustomInterface.Circle" ManuallyRouted="true">
+      <Path>
+        <Point X="1.75" Y="3.941" />
+        <Point X="1.75" Y="5" />
+        <Point X="1.25" Y="5" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAIAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAIAAAAAAAAgAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TreeDCircle.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="CustomInterface.Triangle" Collapsed="true">
     <Position X="2.75" Y="4.75" Width="1.5" />
