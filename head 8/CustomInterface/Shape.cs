@@ -10,8 +10,9 @@ namespace CustomInterface
     {
         public Shape(string name = "NoName")
         { PetName = name; }
+
         public string PetName { get; set; }
         // Единственный виртуальный метод,
-        public abstract void Draw();        
+        public abstract void Draw();
     }
 }

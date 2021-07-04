@@ -26,6 +26,33 @@ namespace CustomInterface
             {
                 Console.WriteLine(e.Message);
             }
+
+            //проверка без блока try/catch при помощи as
+            Hexagon hex2 = new Hexagon("Peter");
+            IPointy itfPt2 = hex2 as IPointy;
+            if (itfPt2 != null)
+                Console.WriteLine("Points: {0}", itfPt2.Points);
+            else
+                Console.WriteLine("OOPS I Not pointy...");
+
+            //проверка без блока try/catch при помощи is
+            
+            // Создать массив элементов Shape.
+            Shape[] myShapes = { new Hexagon(), new Circle(),
+                        new Triangle("Joe"), new Circle("JoJo")};
+            for (int i = 0; i < myShapes.Length; i++)
+            {   // Вспомните, что базовый класс Shape определяет абстрактный
+                // член Draw(), поэтому все фигуры знают, как себя рисовать.
+                myShapes[i].Draw();
+                //У каких фигур есть вершины?
+                if (myShapes[i] is IPointy ip)
+                    Console.WriteLine("-> Points: {0}", ip.Points); // есть вершины
+                else
+                    Console.WriteLine("-> {0}\'s not pointy!", myShapes[i].PetName);
+                // нет вершин
+                Console.WriteLine();
+            }
+
             Console.ReadLine();
         }
     }
