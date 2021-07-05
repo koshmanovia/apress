@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomInterface
+namespace InterfaceNameClash
 {
-    class Octagon
+    interface IDrawToMemory
     {
+        void Draw();
     }
 }

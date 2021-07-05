@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomInterface
-{
-    interface Interface2
+namespace InterfaceNameClash
+{ 
+    interface IDrawToPrinter
     {
+        void Draw();
     }
 }
