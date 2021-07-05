@@ -55,12 +55,23 @@ namespace CustomInterface
                 if (myShapes[i] is IDraw3D)
                     DrawIn3D((IDraw3D)myShapes[i]);
             }
-
+            //Получить первый эллемнт имеющий вершины
+            IPointy firstPointyItem = FindFirstPointyShape(myShapes);
+            Console.WriteLine("The item has {0} points", firstPointyItem.Points);
             Console.ReadLine();
         }
         static void DrawIn3D(IDraw3D itf3d) 
         {
             itf3d.Draw3D();
+        }
+        static IPointy FindFirstPointyShape(Shape[] shapes)
+        {
+            foreach (Shape s in shapes)
+            {
+                if (s is IPointy ip)
+                { return ip; }
+            }
+            return null;
         }
     }
 }
