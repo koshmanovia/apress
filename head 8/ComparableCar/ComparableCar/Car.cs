@@ -53,8 +53,15 @@ namespace ComparableCar
             Car temp = obj as Car;
             if (temp != null)
             {
+                if (this.CarID > temp.CarID)
+                { return 1; }
+                if (this.CarID < temp.CarID)
+                { return -1; }
+                else { return 0; }
 
             }
+            else
+                throw new ArgumentException("Parametr is not a Car!");
         }
     }
 }
