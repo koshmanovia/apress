@@ -28,6 +28,11 @@ namespace ComparableCar
             foreach (Car c in myAutos)
             { Console.WriteLine("{0} {1}", c.CarID, c.PetName); }
 
+            Array.Sort(myAutos, new PetNameComparer());
+            Console.WriteLine("Here is the ordered set of cars:");
+            foreach (Car c in myAutos)
+            { Console.WriteLine("{0} {1}", c.CarID, c.PetName); }
+
             Console.ReadLine();
         }
     }
