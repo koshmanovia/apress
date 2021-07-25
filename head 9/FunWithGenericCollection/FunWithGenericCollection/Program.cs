@@ -22,6 +22,9 @@ namespace FunWithGenericCollection
             UseSortedSet();
             Console.WriteLine();
 
+            UseDictionary();
+            Console.WriteLine();
+
             Console.ReadLine();
         }
         static void UseGenericList()
@@ -138,6 +141,50 @@ namespace FunWithGenericCollection
             {
                 Console.WriteLine(p);
             }
+        }
+        private static void UseDictionary()
+        {
+            // Наполнить с помощью метода Add().
+            Dictionary<string, Person> peopleA = new Dictionary<string, Person>();
+            peopleA.Add("Homer", new Person
+            {
+                FirstName = "Homer",
+                LastName = "Simpson",
+                Age = 47
+            });
+            peopleA.Add("Marge", new Person
+            {
+                FirstName = "Marge",
+                LastName = "Simpson",
+                Age = 45
+            });
+            peopleA.Add("Lisa", new Person
+            {
+                FirstName = "Lisa",
+                LastName = "Simpson",
+                Age = 9
+            });
+            // Получить элемент с ключом Homer.
+            Person homer = peopleA["Homer"];
+            Console.WriteLine(homer);
+            // Наполнить с помощью синтаксиса инициализации.
+            Dictionary<string, Person> peopleB = new Dictionary<string, Person>()
+            {
+                {"Homer", new Person { FirstName = "Homer", LastName = "Simpson", Age = 47} },
+                {"Marge", new Person { FirstName = "Marge", LastName = "Simpson", Age = 45 } },
+                {"Lisa", new Person { FirstName = "Lisa", LastName = "Simpson", Age = 9 } }
+            };
+            // Получить элемент с ключом Lisa.
+            Person lisa = peopleB["Lisa"];
+            Console.WriteLine(lisa);
+            Dictionary<string, Person> peopleC = new Dictionary<string, Person>()
+            {
+                ["Homer"] = new Person { FirstName = "Homer", LastName = "Simpson", Age = 47 },
+                ["Marge"] = new Person { FirstName = "Marge", LastName = "Simpson", Age = 45 },
+                ["Lisa"] = new Person { FirstName = "Lisa", LastName = "Simpson", Age = 9 }
+            };
+            Person Marge = peopleC["Marge"];
+            Console.WriteLine(Marge);
         }
     }    
     class SortPeopleByAge : IComparer<Person>
