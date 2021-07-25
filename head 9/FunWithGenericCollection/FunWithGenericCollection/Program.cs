@@ -19,6 +19,9 @@ namespace FunWithGenericCollection
             UseGenericQueue();
             Console.WriteLine();
 
+            UseSortedSet();
+            Console.WriteLine();
+
             Console.ReadLine();
         }
         static void UseGenericList()
@@ -100,6 +103,56 @@ namespace FunWithGenericCollection
                     Console.WriteLine("Error! {0} ",ex.Message);
                 }
             }
+        }
+        static void UseSortedSet()
+        {
+            // Создать несколько объектов Person с разными значениями возраста.
+            SortedSet<Person> setOfPeople = new SortedSet<Person>(new SortPeopleByAge())
+        {
+            new Person {FirstName= "Homer", LastName="Simpson", Age=47},
+            new Person {FirstName= "Marge", LastName="Simpson", Age=45},
+            new Person {FirstName= "Lisa", LastName="Simpson", Age=9},
+            new Person {FirstName= "Bart", LastName="Simpson", Age=8}
+        };
+            // Обратите внимание, что элементы отсортированы по возрасту.
+            foreach (Person р in setOfPeople)
+            {
+                Console.WriteLine(р);
+            }
+            Console.WriteLine();
+            // Добавить еще несколько объектов Person с разными значениями возраста.
+            setOfPeople.Add(new Person
+            {
+                FirstName = "Saku",
+                LastName = "Jones",
+                Age = 1
+            });
+            setOfPeople.Add(new Person
+            {
+                FirstName = "Mikko",
+                LastName = "Jones",
+                Age = 32
+            });
+            // Элементы по-прежнему отсортированы по возрасту.
+            foreach (Person p in setOfPeople)
+            {
+                Console.WriteLine(p);
+            }
+        }
+    }    
+    class SortPeopleByAge : IComparer<Person>
+    {
+        public int Compare(Person firstPerson, Person secondPerson)
+        {
+            if (firstPerson?.Age > secondPerson?.Age)
+            {
+                return 1;
+            }
+            if (firstPerson?.Age < secondPerson?.Age)
+            {
+                return -1;
+            }
+            return 0;
         }
     }
 }
