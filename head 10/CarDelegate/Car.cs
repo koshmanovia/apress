@@ -34,6 +34,10 @@ namespace CarDelegate
         }
         //реализовываем метод accelerate() для обращения к списку
         //вызовов делегата в подходящих обстоятельствах
+        public void UnRegisterWithCarEngine(CarEngineHandler methodToCall)
+        {
+            listOfHandlers -= methodToCall;
+        }
         public void Accelerate(int delta)
         {
             //сообщение о поломке автомобиля
@@ -41,7 +45,7 @@ namespace CarDelegate
             {
                 if (listOfHandlers != null)
                 {
-                    listOfHandlers("Sorry< this car is dead...");
+                    listOfHandlers("Sorry, this car is dead...");
                 }
             }
             else 
