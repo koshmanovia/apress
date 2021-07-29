@@ -30,7 +30,7 @@ namespace CarDelegate
         //добавляем регистрационную функцию для вызывающего кода
         public void RegisterWithCarEngine(CarEngineHandler methodToCall) 
         {
-            listOfHandlers = methodToCall;
+            listOfHandlers += methodToCall;
         }
         //реализовываем метод accelerate() для обращения к списку
         //вызовов делегата в подходящих обстоятельствах
