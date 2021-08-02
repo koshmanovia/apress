@@ -13,5 +13,6 @@ namespace CarEventsArgs
         {
             msg = message;
         }
+
     }
 }

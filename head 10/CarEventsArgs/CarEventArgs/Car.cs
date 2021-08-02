@@ -42,7 +42,7 @@ namespace CarEventsArgs
                 //Почти сломан?
                 if (10 == MaxSpeed - CurrentSpeed)
                 {
-                    AboutToBlow?.Invoke("Careful buddy! Gonna blow!");
+                    AboutToBlow?.Invoke(this, new CarEventArgs("Careful buddy! Gonna blow!"));
                 }
                 if (CurrentSpeed >= MaxSpeed)
                 {
