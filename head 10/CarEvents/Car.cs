@@ -32,18 +32,17 @@ namespace CarEvents
             //Если автомобиль сломан инициализировать событие Exploded
             if (carIsDead)
             {
-                if (Exploded != null)
-                {
-                    Exploded("Sorry, this car is dead...");
-                }
+                //if (Exploded != null){Exploded("Sorry, this car is dead...");}
+                //Запись ниже функционально идентична записи выше.
+                Exploded?.Invoke("Sorry, this car is dead...");
             }
             else
             {
                 CurrentSpeed += delta;
                 //Почти сломан?
-                if (10 == MaxSpeed - CurrentSpeed && AboutToBlow != null)
+                if (10 == MaxSpeed - CurrentSpeed)
                 {
-                    AboutToBlow("Careful buddy! Gonna blow!");
+                    AboutToBlow?.Invoke("Careful buddy! Gonna blow!");
                 }
                 if (CurrentSpeed >= MaxSpeed)
                 {
