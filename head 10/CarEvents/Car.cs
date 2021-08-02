@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarEvent
+namespace CarEvents
 {
     class Car
     {
@@ -36,24 +36,24 @@ namespace CarEvent
                 {
                     Exploded("Sorry, this car is dead...");
                 }
+            }
+            else
+            {
+                CurrentSpeed += delta;
+                //Почти сломан?
+                if (10 == MaxSpeed - CurrentSpeed && AboutToBlow != null)
+                {
+                    AboutToBlow("Careful buddy! Gonna blow!");
+                }
+                if (CurrentSpeed >= MaxSpeed)
+                {
+                    carIsDead = true;
+                }
                 else
                 {
-                    CurrentSpeed += delta;
-                    //Почти сломан?
-                    if (10 == MaxSpeed - CurrentSpeed && AboutToBlow != null)
-                    {
-                        AboutToBlow("Careful buddy! Gonna blow!");
-                    }
-                    if(CurrentSpeed >= MaxSpeed)
-                    {
-                        carIsDead = true;
-                    }
-                    else
-                    {
-                        Console.WriteLine("CurrentSpeed = {0}", CurrentSpeed);
-                    }
+                    Console.WriteLine("CurrentSpeed = {0}", CurrentSpeed);
                 }
-            }
+            }            
         }
     }
 }
