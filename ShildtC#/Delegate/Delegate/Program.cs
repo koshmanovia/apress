@@ -2,29 +2,29 @@
 using System.Collections.Generic;
 
 //Объявить тип делегата
-delegate string StrMod(string str);
-class StringOps
+delegate void StrMod(ref string str);
+class MultiCastDemo
 {
-    public static string ReplaseSpaces(string s)
+    public static void ReplaseSpaces(ref string s)
     {
         Console.WriteLine("Замена пробелов дефисами");
-        return s.Replace(' ', '-');
+        s = s.Replace(' ', '-');
     }
-    public static string RemoveSpaces(string s)
+    public static void RemoveSpaces(ref string s)
     {
         Console.WriteLine("Удаление пробелов");
         string temp = "";
         int i;
         for (i = 0; i < s.Length; i++)
         {
-            if (s[i] != ' ')
+            if (s[i] != '-')
             {
                 temp += s[i];
             }
         }
-        return temp;
+        s = temp;
     }
-    public static string Reverce(string s)
+    public static void Reverce(ref string s)
     {
         string temp = "";
         int i, j;
@@ -34,30 +34,36 @@ class StringOps
         {
             temp += s[i];
         }
-        return temp;
+        s = temp;
     }
 
 }
 class DelegateTest
 {  
     static void Main()
-    {        
-        //Сконструировали делегат
-        StrMod strOp = StringOps.ReplaseSpaces;
-        string str;
-        List<string> list = new List<string>();
-        string s = "Это простой тест";
+    {
+        //Сконструировали делегаты
+        StrMod strOp;
+        StrMod strReplaceSP = MultiCastDemo.ReplaseSpaces;
+        StrMod strRemoveSP = MultiCastDemo.RemoveSpaces;
+        StrMod strReverce = MultiCastDemo.Reverce;         
+        string str = "Это простой тест";
 
         //Вызвать методы с помощью делегата
-        list.Add(strOp(s));
-        strOp = StringOps.RemoveSpaces;
-        list.Add(strOp(s));
-        strOp = StringOps.Reverce;
-        list.Add(strOp(s));
-        foreach (String str1 in list) 
-        {
-            Console.WriteLine("Результирующая строка: {0}", str1);
-        }
+        strOp = strReplaceSP;
+        strOp += strReverce;
+
+        //Обратится к групповому делегату
+        strOp(ref str);
+        Console.WriteLine($"Результирующая строка: {str}\n");
+        //удалить метод замены пробелов и добавить метод удаления пробелов
+        strOp -= strReplaceSP;
+        strOp += strRemoveSP;
+
+        //снова обратимся к групповому делегату
+        strOp(ref str);
+        Console.WriteLine($"Результирующая строка: {str}\n");
+
         Console.ReadKey();
     }
 }
