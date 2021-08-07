@@ -24,7 +24,7 @@ namespace LambdaExpressionsMultipleParams
         public void SetMathHandler(MathMessage target)
         {
             mmDelegate = target;
-        }
+        } 
         public void Add(int x, int y)
         {
             mmDelegate?.Invoke("Adding has completed! ", x + y);
