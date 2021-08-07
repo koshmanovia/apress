@@ -3,28 +3,28 @@ using System.Collections.Generic;
 
 //Объявить тип делегата
 delegate string StrMod(string str);
-class DelegateTest
+class StringOps
 {
-    static string ReplaseSpaces(string s)
+    public static string ReplaseSpaces(string s)
     {
         Console.WriteLine("Замена пробелов дефисами");
         return s.Replace(' ', '-');
     }
-    static string RemoveSpaces(string s)
+    public static string RemoveSpaces(string s)
     {
         Console.WriteLine("Удаление пробелов");
         string temp = "";
         int i;
         for (i = 0; i < s.Length; i++)
         {
-            if(s[i] != ' ')
+            if (s[i] != ' ')
             {
                 temp += s[i];
             }
         }
-            return temp;
+        return temp;
     }
-    static string Reverce(string s)
+    public static string Reverce(string s)
     {
         string temp = "";
         int i, j;
@@ -37,19 +37,22 @@ class DelegateTest
         return temp;
     }
 
+}
+class DelegateTest
+{  
     static void Main()
     {        
         //Сконструировали делегат
-        StrMod strOp = new StrMod(ReplaseSpaces);
+        StrMod strOp = StringOps.ReplaseSpaces;
         string str;
         List<string> list = new List<string>();
         string s = "Это простой тест";
 
         //Вызвать методы с помощью делегата
         list.Add(strOp(s));
-        strOp = new StrMod(RemoveSpaces);
+        strOp = StringOps.RemoveSpaces;
         list.Add(strOp(s));
-        strOp = new StrMod(Reverce);
+        strOp = StringOps.Reverce;
         list.Add(strOp(s));
         foreach (String str1 in list) 
         {
