@@ -1,13 +1,13 @@
 ﻿using System;
-delegate void CountIt(int End);
-class AnonMethDemo
+delegate void CountIt(int i);
+class AnonMethDemo2
 {
     static void Main()
     {
         // Далее следует код для подсчета чисел, передаваемый делегату
         // в качестве анонимного метода.
-        CountIt count = 
-            delegate(int end)
+        CountIt count =
+            delegate (int end)
             {
                 // Этот кодовый блок передается делегату.
                 for (int i = 0; i <= end; i++)
@@ -22,6 +22,5 @@ class AnonMethDemo
         count(5);
         Console.ReadLine();
     }
-    
-}
 
+}
