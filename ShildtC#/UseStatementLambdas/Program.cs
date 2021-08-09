@@ -43,6 +43,22 @@ class DelegateTest
             }           
             return temp;
         };
+        /*  string str = "Это простой тест";
+
+          //Вызвать методы с помощью делегата
+          strOp = strReplaceSP;
+          strOp += strReverce;
+
+          //Обратится к групповому делегату
+          strOp(str);
+          Console.WriteLine($"Результирующая строка: {str}\n");
+          //удалить метод замены пробелов и добавить метод удаления пробелов
+          strOp -= strReplaceSP;
+          strOp += strRemoveSP;
+
+          //снова обратимся к групповому делегату
+          strOp(str);
+          Console.WriteLine($"Результирующая строка: {str}\n");*/
         StrMod strOp = strReplaceSP;        
         string str = strOp("Это простой тест.");
         Console.WriteLine("Результирующая строка: " + str);
