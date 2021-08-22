@@ -18,6 +18,7 @@ namespace AnonymousTypes
             //Анонимного типа с указанием аргументов.
             BuildAnonType("BMW", "Black", 90);
             ReflectOverAnonymousType(MyCar);
+            EqualityTest();
             Console.ReadLine();
         }
         static void BuildAnonType(string make, string color, int currSp)
@@ -38,6 +39,31 @@ namespace AnonymousTypes
             Console.WriteLine("obj .ToString() == {0}", obj.ToString());
             Console.WriteLine("obj.GetHashCode() == {0}", obj.GetHashCode());
             Console.WriteLine();
+        }
+        static void EqualityTest()
+        {
+            // Создать два анонимных класса с идентичными наборами пар "имя-значение",
+            var firstCar = new { Color = "Bright Pink", Make = "Saab", CurrentSpeed = 55 };
+            var secondCar = new { Color = "Bright Pink", Make = "Saab", CurrentSpeed = 55 };
+            // Считаются ли они эквивалентными, когда используется Equals()?
+            if (firstCar.Equals(secondCar))
+                Console.WriteLine("Same anonymous object!"); // Тот же самый анонимный объект                                                             
+            else
+                Console.WriteLine("Not the same anonymous object!"); // He тот же самый
+                                                                     //анонимный объект
+            // Можно ли проверить их эквивалентность с помощью операции ==?
+            if (firstCar == secondCar)
+                Console.WriteLine("Same anonymous object!");
+            else
+                Console.WriteLine("Not the same anonymous object!");
+            // Имеют ли эти объекты в основе один и тот же тип?
+            if (firstCar.GetType().Name == secondCar.GetType().Name)
+                Console.WriteLine("We are both the same type!"); // Оба объекта имеют тот же самый тип
+            else
+                Console.WriteLine("We are different types!"); // Объекты относятся к разным типам Отобразить все детали.
+            Console.WriteLine();
+            ReflectOverAnonymousType(firstCar);
+            ReflectOverAnonymousType(secondCar);
         }
     }
 }
