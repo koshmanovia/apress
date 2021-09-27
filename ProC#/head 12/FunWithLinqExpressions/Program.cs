@@ -31,11 +31,24 @@ namespace FunWithLinqExpressions
             Console.WriteLine();
             GetNameAndDescriptions(itemsInStock);
             Console.WriteLine();
+
             Array objs = GetProjectedSubset(itemsInStock);
             foreach (object о in objs)
             {
                 Console.WriteLine(о); //Вызывает метод ToStringO на каждом анонимном объекте.
             }
+
+            Console.WriteLine();
+
+            GetCountFromQuery();
+            Console.WriteLine();
+
+            ReverseEverything(itemsInStock);
+            Console.WriteLine();
+
+            AlphabetizeProductNames(itemsInStock);
+            Console.WriteLine();
+
             Console.ReadLine();
         }
 
@@ -85,6 +98,35 @@ namespace FunWithLinqExpressions
             var nameDesc = from p in products select new {p.Name, p.Description};
             // Отобразить набор анонимных объектов на объект Array,
             return nameDesc.ToArray();
+        }
+
+        static void GetCountFromQuery()
+        {
+            string[] currentVideoGames = {"Morrowind", "Uncharted 2", "Fallout 3", "Daxter", "System Shock 2"};
+            // Получить количество элементов из запроса.
+            int numb = (from g in currentVideoGames where g.Length > 6 select g).Count();
+            // Вывести количество элементов.
+            Console.WriteLine("{0} items honor the LINQ query.", numb);
+        }
+
+        static void ReverseEverything(ProductInfo[] products)
+        {
+            Console.WriteLine("Product in reverse:");
+            var allProducts = from p in products select p;
+            foreach (var prod in allProducts.Reverse())
+            {
+                Console.WriteLine(prod.ToString());
+            }
+        }
+        static void AlphabetizeProductNames(ProductInfo[] products)
+        {
+            // Получить названия товаров в алфавитном порядке,
+            var subset = from p in products orderby p.Name descending select p;
+            Console.WriteLine("Ordered by Name:");
+            foreach (var p in subset)
+            {
+                Console.WriteLine(p.ToString());
+            }
         }
     }
 
