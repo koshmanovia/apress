@@ -7,26 +7,38 @@ using System.Threading.Tasks;
 namespace FunWithLinqExpressions
 {
     class Program
-    {        static void Main(string[] args)
+    {
+        static void Main(string[] args)
         {
             Console.WriteLine("*******Fun with Query Expressions * ****\n");
             // Этот массив будет основой для тестирования. . .
-            ProductInfo[] itemsInStock = new[] 
+            ProductInfo[] itemsInStock = new[]
             {
-                new ProductInfo{ Name = "Mac's Coffee", Description = "Coffee with TEETH", NumberInStock = 24},
-                new ProductInfo{Name = "Milk Maid Milk", Description = "Milk cow's love", NumberInStock = 100},
-                new ProductInfo{ Name = "Pure Silk Tofu", Description = "Bland as Possible", NumberInStock = 120}, 
-                new ProductInfo{ Name = "Crunchy Pops", Description = "Cheezy, peppery goodness", NumberInStock = 2},
-                new ProductInfo{ Name = "RipOff Water", Description = "From the tap to your wallet", NumberInStock = 100},
-                new ProductInfo{ Name = "Classic Valpo Pizza", Description = "Everyone loves pizza'", NumberInStock = 73}
+                new ProductInfo {Name = "Mac's Coffee", Description = "Coffee with TEETH", NumberInStock = 24},
+                new ProductInfo {Name = "Milk Maid Milk", Description = "Milk cow's love", NumberInStock = 100},
+                new ProductInfo {Name = "Pure Silk Tofu", Description = "Bland as Possible", NumberInStock = 120},
+                new ProductInfo {Name = "Crunchy Pops", Description = "Cheezy, peppery goodness", NumberInStock = 2},
+                new ProductInfo
+                    {Name = "RipOff Water", Description = "From the tap to your wallet", NumberInStock = 100},
+                new ProductInfo
+                    {Name = "Classic Valpo Pizza", Description = "Everyone loves pizza'", NumberInStock = 73}
             };
             SelectEverything(itemsInStock);
             Console.WriteLine();
             ListProductNames(itemsInStock);
             Console.WriteLine();
             GetOverstock(itemsInStock);
+            Console.WriteLine();
+            GetNameAndDescriptions(itemsInStock);
+            Console.WriteLine();
+            Array objs = GetProjectedSubset(itemsInStock);
+            foreach (object о in objs)
+            {
+                Console.WriteLine(о); //Вызывает метод ToStringO на каждом анонимном объекте.
+            }
             Console.ReadLine();
         }
+
         static void SelectEverything(ProductInfo[] products)
         {
             Console.WriteLine("All product details");
@@ -36,6 +48,7 @@ namespace FunWithLinqExpressions
                 Console.WriteLine(prod.ToString());
             }
         }
+
         static void ListProductNames(ProductInfo[] products)
         {
             // Теперь получить только наименования товаров.
@@ -46,6 +59,7 @@ namespace FunWithLinqExpressions
                 Console.WriteLine("Name: {0}", n);
             }
         }
+
         static void GetOverstock(ProductInfo[] products)
         {
             Console.WriteLine("The overstock items!");
@@ -55,10 +69,22 @@ namespace FunWithLinqExpressions
                 Console.WriteLine(c.ToString());
             }
         }
+
         static void GetNameAndDescriptions(ProductInfo[] products)
         {
             Console.WriteLine("Names and Descriptions");
+            var nameDesc = from p in products select new {p.Name, p.Description};
+            foreach (var item in nameDesc)
+            {
+                Console.WriteLine(item.ToString());
+            }
+        }
 
+        static Array GetProjectedSubset(ProductInfo[] products)
+        {
+            var nameDesc = from p in products select new {p.Name, p.Description};
+            // Отобразить набор анонимных объектов на объект Array,
+            return nameDesc.ToArray();
         }
     }
 
