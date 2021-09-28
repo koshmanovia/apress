@@ -23,12 +23,16 @@ namespace FunWithLinqExpressions
                 new ProductInfo
                     {Name = "Classic Valpo Pizza", Description = "Everyone loves pizza'", NumberInStock = 73}
             };
+
             SelectEverything(itemsInStock);
             Console.WriteLine();
+
             ListProductNames(itemsInStock);
             Console.WriteLine();
+
             GetOverstock(itemsInStock);
             Console.WriteLine();
+
             GetNameAndDescriptions(itemsInStock);
             Console.WriteLine();
 
@@ -37,7 +41,6 @@ namespace FunWithLinqExpressions
             {
                 Console.WriteLine(о); //Вызывает метод ToStringO на каждом анонимном объекте.
             }
-
             Console.WriteLine();
 
             GetCountFromQuery();
@@ -47,6 +50,24 @@ namespace FunWithLinqExpressions
             Console.WriteLine();
 
             AlphabetizeProductNames(itemsInStock);
+            Console.WriteLine();
+
+            DisplayDiff();
+            Console.WriteLine();
+
+            Displaylntersection();
+            Console.WriteLine();
+
+            DisplayUnion();
+            Console.WriteLine();
+
+            DisplayConcat();
+            Console.WriteLine();
+
+            DisplayConcatNoDups();
+            Console.WriteLine();
+
+            AggregateOps();
             Console.WriteLine();
 
             Console.ReadLine();
@@ -61,7 +82,6 @@ namespace FunWithLinqExpressions
                 Console.WriteLine(prod.ToString());
             }
         }
-
         static void ListProductNames(ProductInfo[] products)
         {
             // Теперь получить только наименования товаров.
@@ -72,7 +92,6 @@ namespace FunWithLinqExpressions
                 Console.WriteLine("Name: {0}", n);
             }
         }
-
         static void GetOverstock(ProductInfo[] products)
         {
             Console.WriteLine("The overstock items!");
@@ -82,7 +101,6 @@ namespace FunWithLinqExpressions
                 Console.WriteLine(c.ToString());
             }
         }
-
         static void GetNameAndDescriptions(ProductInfo[] products)
         {
             Console.WriteLine("Names and Descriptions");
@@ -92,14 +110,12 @@ namespace FunWithLinqExpressions
                 Console.WriteLine(item.ToString());
             }
         }
-
         static Array GetProjectedSubset(ProductInfo[] products)
         {
             var nameDesc = from p in products select new {p.Name, p.Description};
             // Отобразить набор анонимных объектов на объект Array,
             return nameDesc.ToArray();
         }
-
         static void GetCountFromQuery()
         {
             string[] currentVideoGames = {"Morrowind", "Uncharted 2", "Fallout 3", "Daxter", "System Shock 2"};
@@ -108,7 +124,6 @@ namespace FunWithLinqExpressions
             // Вывести количество элементов.
             Console.WriteLine("{0} items honor the LINQ query.", numb);
         }
-
         static void ReverseEverything(ProductInfo[] products)
         {
             Console.WriteLine("Product in reverse:");
@@ -128,8 +143,71 @@ namespace FunWithLinqExpressions
                 Console.WriteLine(p.ToString());
             }
         }
+        static void DisplayDiff()
+        {
+            List<string> myCars = new List<String> {"Yugo", "Aztec", "BMW"};
+            List<string> yourCars = new List<String> {"BMW", "Saab", "Aztec"};
+            var carDiff = (from c in yourCars select c).Except(from c2 in myCars select c2);
+            Console.WriteLine("Here is what you don't have, but I do:");
+            foreach (string s in carDiff)
+                Console.WriteLine(s); // Выводит Yugo.
+        }
+        static void Displaylntersection()
+        {
+            List<string> myCars = new List<String> { "Yugo", "Aztec", "BMW" };
+            List<string> yourCars = new List<String> { "BMW", "Saab", "Aztec" };
+            var carlntersect = (from c in myCars select c).Intersect(from c2 in yourCars select c2);
+            Console.WriteLine("Here is what we have in common:");
+            foreach (string s in carlntersect)
+            Console.WriteLine(s); // Выводит Aztec и BMW.
+        }
+        static void DisplayUnion()
+        {
+            List<string> myCars = new List<String> { "Yugo", "Aztec", "BMW" };
+            List<string> yourCars = new List<String> { "BMW", "Saab", "Aztec" };
+            var carUnion = (from c in myCars select c).Union(from c2 in yourCars select c2);
+            Console.WriteLine("Here is everything:");
+            foreach (string s in carUnion)
+            {
+                Console.WriteLine(s); 
+            }
+        }
+        static void DisplayConcat()
+        {
+            List<string> myCars = new List<String> { "Yugo", "Aztec", "BMW" };
+            List<string> yourCars = new List<String> { "BMW", "Saab", "Aztec" };
+            var carConcat = (from c in myCars select c).Concat(from c2 in yourCars select c2);
+            Console.WriteLine("Display Concat with Duplicate:");
+            foreach (string s in carConcat)
+            {
+                Console.WriteLine(s);
+            }
+        }
+        static void DisplayConcatNoDups()
+        {
+            List<string> myCars = new List<String> { "Yugo", "Aztec", "BMW" };
+            List<string> yourCars = new List<String> { "BMW", "Saab", "Aztec" };
+            var carConcat = (from c in myCars select c).Concat(from c2 in yourCars select c2);
+            Console.WriteLine("Display Concat not Duplicate:");
+            foreach (string s in carConcat.Distinct())
+            {
+                Console.WriteLine(s);
+            }
+        }
+        static void AggregateOps()
+        {
+            double[] winterTemps = { 2.0, -21.3, 8, -4, 0, 8.2 };
+            // Разнообразные примеры агрегации.
+            // Выводит максимальную температуру:
+            Console.WriteLine("Max temp: {0}", (from t in winterTemps select t).Max());
+            // Выводит минимальную температуру:
+            Console.WriteLine("Min temp: {0}", (from t in winterTemps select t).Min());
+            // Выводит среднюю температуру:
+            Console.WriteLine("Average temp: {0}", (from t in winterTemps select t).Average ());
+            // Выводит сумму всех температур:
+            Console.WriteLine("Sum of all temps: {0}", (from t in winterTemps select t).Sum());
+        }
     }
-
     class ProductInfo
     {
         public string Name { get; set; } = "";
