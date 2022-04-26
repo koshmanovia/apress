@@ -23,45 +23,67 @@ namespace Hangman_Game_HW
         public string secretWord = default;
         int attempt = 6;
         char[] checkChar = default;
+        string tempStr = default;
+        bool charContain = false;
 
         public Hangman()
         {
             numStrWord = new Random().Next(1, 11650);
             numStrWord = 11650;
-            secretWord = File.ReadLines("WordsStockRus.txt").Skip(numStrWord - 1).First();
-            checkChar = new char[secretWord.Length];        
+            secretWord = File.ReadLines("WordsStockRus.txt").Skip(numStrWord - 1).First().Normalize().Trim();
+            checkChar = new char[secretWord.Length];
+            for (int i = 0; i < checkChar.Length; i++)
+            {
+                checkChar[i] = '*';
+            }
+
         }
 
         public void StartGame()
-        {
-            string tempChar = default;
-            for (; attempt > 0; attempt--)
+        {            
+            for (;attempt > -1;)
             {
+                if (attempt == 0)
+                {
+                    Console.WriteLine("Ты проиграл");
+                }
                 Console.WriteLine("Загаданное слово:\n");
-                //Console.WriteLine(new String('*', secretWord.Length));
-                OutputSecretWord();
+                OutputWord();
                 Console.WriteLine("\nВведите букву");
-                Console.ReadLine();
-
+                tempStr = Console.ReadLine();
+                CheckSecretNumContainNum(tempStr.Normalize());
+               // Console.Clear();
             }
         }
-        public void OutputSecretWord()
+
+        private void CheckSecretNumContainNum(string s)
         {
-            checkChar[1] = 'а';
-            checkChar[4] = 'а';
-            for (int i = 0; i < secretWord.Length; i++)
-            {
-                for (int j = 0; j < checkChar.Length; j++)
+            charContain = false;
+            if (secretWord.Contains(s))
+            {                
+                for (int i = 0; i < secretWord.Length; i++)
                 {
-                    if (secretWord[i] == checkChar[j] && i == j)
+                    for (int j = 0; j < checkChar.Length; j++)
                     {
-                        Console.Write(secretWord[i]);
-                    } else
-                        if(i == j && secretWord[i] != checkChar[j])
+                        if (secretWord[i] == s[0])
                         {
-                        Console.Write("*");
+                            checkChar[i] = s[0];
+                            charContain = true;
                         }
+                    }
+                    if (charContain == false)
+                    {
+                        Console.WriteLine("Такой буквы нет!");
+                        Console.WriteLine($"Количество попыток: {--attempt}");
+                    }                 
                 }
+            }
+        } 
+        private void OutputWord()
+        {
+            for (int i = 0; i < checkChar.Length; i++)
+            {
+                Console.Write(checkChar[i] + " ");
             }
         }
     }
