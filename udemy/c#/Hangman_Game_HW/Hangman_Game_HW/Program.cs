@@ -54,6 +54,7 @@ namespace Hangman_Game_HW
                 {
                     Console.Clear();
                     Console.WriteLine("Ты проиграл");
+                    Console.WriteLine(secretWord);
                     break;
                 }
                 if (charContain == false && attempt != 6)

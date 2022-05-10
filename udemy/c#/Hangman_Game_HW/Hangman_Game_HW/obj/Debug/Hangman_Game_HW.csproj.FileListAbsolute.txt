@@ -6,3 +6,4 @@ C:\MyProg\VS\projects\Apress\udemy\c#\Hangman_Game_HW\Hangman_Game_HW\obj\Debug\
 C:\MyProg\VS\projects\Apress\udemy\c#\Hangman_Game_HW\Hangman_Game_HW\obj\Debug\Hangman_Game_HW.csproj.CoreCompileInputs.cache
 C:\MyProg\VS\projects\Apress\udemy\c#\Hangman_Game_HW\Hangman_Game_HW\obj\Debug\Hangman_Game_HW.exe
 C:\MyProg\VS\projects\Apress\udemy\c#\Hangman_Game_HW\Hangman_Game_HW\obj\Debug\Hangman_Game_HW.pdb
+C:\MyProg\VS\projects\Apress\udemy\c#\Hangman_Game_HW\Hangman_Game_HW\bin\Debug\WordsStockRus.txt
