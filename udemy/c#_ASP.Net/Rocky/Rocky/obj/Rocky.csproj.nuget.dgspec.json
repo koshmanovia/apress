@@ -44,9 +44,9 @@
               "target": "Package",
               "version": "[5.0.17, )"
             },
-            "Microsoft.Extensions.Caching.SqlServer": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.1, )"
+              "version": "[5.0.17, )"
             }
           },
           "imports": [
