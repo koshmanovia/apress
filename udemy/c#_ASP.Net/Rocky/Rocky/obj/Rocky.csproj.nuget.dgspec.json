@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\MyProg\\VS\\projects\\Apress\\udemy\\c#_ASP.Net\\Rocky\\Rocky\\Rocky.csproj": {}
+    "C:\\MyProgs\\project\\apress\\udemy\\c#_ASP.Net\\Rocky\\Rocky\\Rocky.csproj": {}
   },
   "projects": {
-    "C:\\MyProg\\VS\\projects\\Apress\\udemy\\c#_ASP.Net\\Rocky\\Rocky\\Rocky.csproj": {
+    "C:\\MyProgs\\project\\apress\\udemy\\c#_ASP.Net\\Rocky\\Rocky\\Rocky.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\MyProg\\VS\\projects\\Apress\\udemy\\c#_ASP.Net\\Rocky\\Rocky\\Rocky.csproj",
+        "projectUniqueName": "C:\\MyProgs\\project\\apress\\udemy\\c#_ASP.Net\\Rocky\\Rocky\\Rocky.csproj",
         "projectName": "Rocky",
-        "projectPath": "C:\\MyProg\\VS\\projects\\Apress\\udemy\\c#_ASP.Net\\Rocky\\Rocky\\Rocky.csproj",
-        "packagesPath": "C:\\Users\\k0shm\\.nuget\\packages\\",
-        "outputPath": "C:\\MyProg\\VS\\projects\\Apress\\udemy\\c#_ASP.Net\\Rocky\\Rocky\\obj\\",
+        "projectPath": "C:\\MyProgs\\project\\apress\\udemy\\c#_ASP.Net\\Rocky\\Rocky\\Rocky.csproj",
+        "packagesPath": "C:\\Users\\XO66UT\\.nuget\\packages\\",
+        "outputPath": "C:\\MyProgs\\project\\apress\\udemy\\c#_ASP.Net\\Rocky\\Rocky\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\k0shm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\XO66UT\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.17, )"
@@ -47,6 +51,16 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.2, )"
             }
           },
           "imports": [
@@ -55,7 +69,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -67,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

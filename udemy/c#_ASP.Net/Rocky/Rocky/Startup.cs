@@ -27,7 +27,7 @@ namespace Rocky
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                   Configuration.GetConnectionString("ConnectionStrings")));
+                   Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
         }
 
