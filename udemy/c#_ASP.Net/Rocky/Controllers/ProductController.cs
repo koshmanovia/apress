@@ -1,6 +1,4 @@
 ﻿using System;
-using System;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,65 +8,61 @@ using Rocky.Models;
 
 namespace Rocky.Controllers
 {
-    public class CategoryController : Controller
+    public class ProductController : Controller
     {
         private readonly ApplicationDbContext _db;
-        public CategoryController(ApplicationDbContext db)
+        public ProductController(ApplicationDbContext db)
         {
             _db = db;
         }
         public IActionResult Index()
         {
-            IEnumerable<Category> objList = _db.Category;
+            IEnumerable<Product> objList = _db.Product;
+            foreach(var obj in objList)
+            {
+                obj.Category = _db.Category.FirstOrDefault(u=>u.Id==obj.Category.Id);
+            }
             return View(objList);
         }
-        //GET - CREATE
-        public IActionResult Create()
+        //GET - Upsert
+        public IActionResult Upsert(int? id)
         {
+            Product product = new Product(); 
+            if(id == null) 
+            {
+                //this is for create 
+                return View(product);
+            }
+            else 
+            {
+                product = _db.Product.Find(id);
+                if (product == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    return View(product);
+                }
+            }
             return View();
         }
 
 
-        //POST - CREATE
+        //POST - Upsert
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Category obj)
+        public IActionResult Upsert(Product obj)
         {
             if (ModelState.IsValid)
             {
-                _db.Category.Add(obj);
+                _db.Product.Add(obj);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(obj);
         }
-        //GET - EDIT
-        public IActionResult Edit(int? id)
-        {
-            if(id==null || id == 0)
-            {
-                return NotFound();
-            }
-            var obj = _db.Category.Find(id);
-            if (obj == null)
-            {
-                return NotFound();
-            }
-            return View(obj);
-        }
-        //POST - EDIT
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Edit(Category obj)
-        {
-            if (ModelState.IsValid)
-            {
-                _db.Category.Update(obj);
-                _db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(obj);
-        }
+       
 
         //GET - DELETE
         public IActionResult Delete(int? id)
