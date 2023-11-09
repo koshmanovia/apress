@@ -24,6 +24,7 @@
                         <input asp-for="Name" class="form-control" />
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
+
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
@@ -33,6 +34,7 @@
                         <input asp-for="Price" class="form-control" />
                         <span asp-validation-for="Price" class="text-danger"></span>
                     </div>
+
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
@@ -49,27 +51,40 @@
                         Image
                     </div>
                     <div class="col-8">
-                        <input type="file" name="files" id="uploadBox" multeple class="form-control" />
+                        <input type="file" name="files" id="uploadBox" multiple class="form-control" />
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="CategoryId"></label>
+                    </div>
+                    <div class="col-8">
+                        <select asp-for="CategoryId" asp-items="@ViewBag.CategoryDropDown" class="form-control">
+                            <option disabled selected>--Select Category--</option>
+                        </select>
+                        <span asp-validation-for="CategoryId" class="text-danger"></span>
                     </div>
 
                 </div>
                 <div class="form-group row">
                     <div class="col-8 offset-4 row">
+
                         <div class="col">
                             @if (Model.id != 0)
                             {
-                                //Edit Product
+                //update
                                 <input type="submit" class="btn btn-info w-100" value="Update" />
                             }
                             else
                             {
-                                //Create Product
+                //create
                                 <input type="submit" onclick="return validateInput()" class="btn btn-primary w-100" value="Create" />
-
                             }
+
                         </div>
                         <div class="col">
-                            <a asp-action="Index" class="btn btn-success w-100"><i class="fa-solid fa-arrow-right-from-bracket"></i>Back</a>
+                            <a asp-action="Index" class="btn btn-success w-100"><i class="fas fa-sign-out-alt"></i> Back</a>
                         </div>
                     </div>
                 </div>
