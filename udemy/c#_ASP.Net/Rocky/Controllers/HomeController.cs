@@ -35,6 +35,13 @@ namespace Rocky.Controllers
         }
         public IActionResult Details(int id) 
         {
+            List<ShoppingCart> shoppingCartList = new List<ShoppingCart>();
+            if (HttpContext.Session.Get<IEnumerable<ShoppingCart>>(WC.SessionCart) != null
+                && HttpContext.Session.Get<IEnumerable<ShoppingCart>>(WC.SessionCart).Count() > 0)
+            {
+                shoppingCartList = HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart);
+            }
+
             DetailsVM detailsVM = new DetailsVM()
             {
                 Product = _db.Product
@@ -44,6 +51,13 @@ namespace Rocky.Controllers
                           .FirstOrDefault(),
                 ExistsInCard = false
             };
+            foreach(var item in shoppingCartList) 
+            {
+                if (item.ProductId == id)
+                { 
+                    detailsVM.ExistsInCard = true;
+                }
+            }
             return View(detailsVM);
         }
         [HttpPost, ActionName("Details")]
@@ -59,7 +73,23 @@ namespace Rocky.Controllers
             HttpContext.Session.Set(WC.SessionCart, shoppingCartList);
             return RedirectToAction(nameof(Index));
         }
+        public IActionResult RemoveFromCart(int id)
+        {
+            List<ShoppingCart> shoppingCartList = new List<ShoppingCart>();
+            if (HttpContext.Session.Get<IEnumerable<ShoppingCart>>(WC.SessionCart) != null
+                && HttpContext.Session.Get<IEnumerable<ShoppingCart>>(WC.SessionCart).Count() > 0)
+            {
+                shoppingCartList = HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart);
+            }
 
+            var itemToremove = shoppingCartList.SingleOrDefault(r => r.ProductId == id);   
+            if (itemToremove != null)
+            {
+                shoppingCartList.Remove(itemToremove);
+            }
+            HttpContext.Session.Set(WC.SessionCart, shoppingCartList);
+            return RedirectToAction(nameof(Index));
+        }
         public IActionResult Privacy()
         {
             return View();
