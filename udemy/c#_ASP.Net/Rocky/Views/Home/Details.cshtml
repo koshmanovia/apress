@@ -2,6 +2,7 @@
 
 <div class="">
     <form method="post">
+        <input asp-for="@Model.Product.id" hidden />
 
         <div class="container backgroundWhite pt-4">
             <div class="card" style="border:1px solid #000000; ">
@@ -47,7 +48,7 @@
                             }
                             else
                             {
-                                <button type="submit" class="btn btn-info form-control btn-lg" style="height:50px;">Add to Cart</button>
+                                <button type="submit" asp-route-id="@Model.Product.id" class="btn btn-info form-control btn-lg" style="height:50px;">Add to Cart</button>
                             }
                         </div>
                     </div>
